@@ -11,6 +11,7 @@ import {
 // components
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
+import About from "../components/About";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
 
@@ -22,7 +23,7 @@ const Home = () => {
         <Banner />
       </HeaderLayout>
       <AboutLayout>
-        <Main />
+        <About />
       </AboutLayout>
       <GeneralInfLayout>
         <Main />
