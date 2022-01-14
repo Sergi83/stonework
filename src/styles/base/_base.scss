@@ -1,0 +1,114 @@
+@import "./variable_templ";
+@import "./mixins";
+
+// * body
+
+body {
+  background-color: $main-b-bg-dark;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  color: $main-b-txt-white;
+
+  box-sizing: border-box;
+
+  // list (standard): style none; display list-item;
+  @extend %list-stand;
+}
+
+p {
+  line-height: 180%;
+  margin-bottom: 1rem;
+}
+
+// * headers
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.6em;
+}
+h2 {
+  font-size: 4em;
+}
+h3 {
+  font-size: 2.7em;
+}
+h4 {
+  font-size: 2em;
+}
+h5 {
+  font-size: 1.3em;
+}
+
+// * buttons
+
+// general button
+.button {
+  display: inline-block;
+  padding: 1em 2em;
+  text-decoration: none;
+
+  // margit-top, border(+radius), fw, fz
+  @extend %btn-mgt-bd-r-f;
+
+  letter-spacing: 0.1em;
+  color: $btn-txt-white;
+
+  &:active {
+    color: $btn-hov-bg;
+  }
+}
+
+// main button (big, on dark baground)
+.btn-big {
+  padding: 1.4em 3em;
+
+  // margit-top, border(+radius), fw, fz
+  @extend %btn-mgt-bd-r-f;
+
+  &:hover {
+    background-color: $btn-hov-bg;
+  }
+}
+
+// button on white background
+.btn-white {
+  border-color: $btn-brd-dark;
+  color: $btn-txt-dark;
+
+  &:hover {
+    background-color: $btn-hov-bg-white;
+  }
+}
+
+// space under button section
+.actions {
+  margin-bottom: 1em;
+}
+
+//  * container
+
+.container {
+  // container: overflow(hidden), margin (tb, rl), max-width:1200px
+  @include contr-overfl-marg2(0, auto);
+}
+
+// * title
+// header's banner, three-column section, general-inf section
+.title {
+  margin-bottom: 3em;
+
+  h2,
+  h3 {
+    line-height: 1.5em;
+  }
+  h4,
+  h5 {
+    line-height: 1.2em;
+  }
+}

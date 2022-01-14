@@ -14,7 +14,7 @@ const Main = () => {
       <p>This is StoneWork</p>
 
       <div className="actions">
-        <Link to="/contact" className="button btn-big">Etiam posuere</Link>
+        <Link to="/contact" className="a button btn-big">Etiam posuere</Link>
       </div>
     </>
   );

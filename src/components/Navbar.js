@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { linksNavbar } from '../content/links';
 
 
 export default function Navbar() {
@@ -9,7 +10,7 @@ export default function Navbar() {
       {/* logo + mobile menu opener */}
       <div id="logo">
         <h1>
-          <Link to="/contact" >StoneWork</Link>
+          <Link to="/contact" className="a">StoneWork</Link>
         </h1>
         <button className="hamburger">☰</button>
       </div>
@@ -17,21 +18,42 @@ export default function Navbar() {
       {/* Memu */}
       <div id="menu">
         <ul>
-          <li className="active" >
+          {/* <li className="active" >
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/clients">Our Clients</Link>
           </li>
           <li>
-            <Link to="/">About Us</Link>
+            <Link to="/#/about">About Us</Link>
           </li>
           <li>
-            <Link to="/">Career</Link>
+            <Link to="/#/general-inf">Career</Link>
           </li>
           <li>
             <Link to="/contact">Contact</Link>
-          </li>
+          </li> */}
+
+          {/* show navbar links */}
+            {linksNavbar.map((link) => {
+              const { id, url, text } = link;
+
+              if(id === 0) {
+                return (
+                  <li key={id} className="active">
+                  <NavLink to={url} className="a">
+                    {text}
+                  </NavLink>
+                </li>
+                )
+              } else return (
+                <li key={id}>
+                  <NavLink to={url} className="a">
+                    {text}
+                  </NavLink>
+                </li>
+              );
+            })}
         </ul>
       </div>
 

@@ -1,20 +1,16 @@
 // reset styles
-// @import "./base/reset";
+@import './base/reset';
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+// variables, templates, mixins
+// @import './base/variable_templ';
+// @import './base/mixins';
 
-body {
-  background: #747272;
-  height: 100%;
-  font-size: 14.67px;
-  font-weight: 300;
-  color: #2b2929;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+// base style
+@import './base/base';
+
+// header, main, footer components
+@import './components/header';
+@import './components/main_footer';
+
+// media queries
+@import './mq/media_Q';

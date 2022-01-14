@@ -1,0 +1,177 @@
+// variables + mixins
+@import "../base/variable_templ";
+@import "../base/mixins";
+
+// * Body
+
+body {
+  @include mediaQ-size(phone-only) {
+    h1 {
+      font-size: 2.2em;
+    }
+    h2 {
+      font-size: 3em;
+    }
+    h3 {
+      font-size: 2.3em;
+    }
+    h4 {
+      font-size: 1.5em;
+    }
+    h5 {
+      font-size: 1.2em;
+    }
+
+    p {
+      margin-bottom: 0.5em;
+      line-height: 120%;
+    }
+
+    .title {
+      margin-bottom: 2em;
+
+      h2,
+      h3 {
+        line-height: 1.2em;
+      }
+      h4,
+      h5 {
+        line-height: 1em;
+      }
+    }
+
+    .button {
+      margin-top: 0.7em;
+    }
+  }
+}
+
+// * Header
+
+#header-wrapper {
+  @include mediaQ-size(phone-only) {
+    @include wrap-relative-pad(3em, $tb-middle);
+  }
+}
+
+#header {
+  @include mediaQ-size(phone-only) {
+    // position, padding (top, bottom)
+    @include wrap-relative-pad(2em, 3em);
+  }
+
+  @include mediaQ-size(tablet-up) {
+    // position, padding (top, bottom)
+    @include wrap-relative-pad(2em, $tb-middle);
+  }
+
+  @include mediaQ-size(desktop-up) {
+    // flexible gap between div(s)
+    @include flex-justify-content(space-between);
+
+    .hamburger {
+      display: none;
+    }
+  }
+}
+
+#logo {
+  @include mediaQ-size(phone-only) {
+    // flexible gap between div(s)
+    @include flex-justify-content(space-between);
+  }
+
+  @include mediaQ-size(tablet-up) {
+    // flexible gap between div(s)
+    @include flex-justify-content(space-between);
+  }
+
+  @include mediaQ-size(desktop-up) {
+    // position, top
+    @include pos-top(absolute, 3.6em);
+    left: 0;
+  }
+}
+
+#menu {
+  @include mediaQ-size(phone-only) {
+    // margins, line height and text-align
+    // animation move menu right (with changing opacity from 0 to 1)
+    @include open-menu-pos-animation;
+  }
+
+  @include mediaQ-size(tablet-up) {
+    @include open-menu-pos-animation;
+  }
+
+  @include mediaQ-size(desktop-up) {
+    display: inline-block;
+    margin-top: 0;
+
+    // position, top
+    @include pos-top(absolute, 4.5em);
+    right: 0;
+    width: 50%;
+
+    ul {
+      @include flex-justify-content(space-between);
+    }
+    li {
+      line-height: 1;
+    }
+  }
+} // end of #menu
+
+#banner {
+  @include mediaQ-size(phone-only) {
+    padding-top: 5em;
+  }
+}
+
+// * Main
+
+.wrapper {
+  @include mediaQ-size(phone-only) {
+    @include wrap-relative-pad(3em, $tb-middle);
+  }
+}
+
+#three-column {
+  @include mediaQ-size(phone-only) {
+    // grid: minmax(min?, auto), gap(?)
+    @include grid-3-column(1rem, 5px) {
+      // text-area rows(2): 1) 1-title, 2) 3-column(.box1-3);
+      @include grid-area-1-column;
+    }
+
+    width: 85%;
+
+    .box1,
+    .box2,
+    .box3 {
+      padding: 0 15%;
+    }
+
+    img {
+      padding: 0.5em 0;
+    }
+  }
+}
+
+#general-inf {
+  @include mediaQ-size(phone-only) {
+    @include wrap-relative-pad(3em, $tb-middle);
+
+    p {
+      margin-bottom: 1.3em;
+    }
+  }
+}
+
+// * Footer
+
+#copyright {
+  @include mediaQ-size(phone-only) {
+    padding: 3em 1em;
+  }
+}
