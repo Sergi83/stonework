@@ -18,6 +18,7 @@
   // h3(color), img(w, h, pad-top-bottom)
   @extend %header-img;
 
+  
   // grid
   // minmax(min?, max?), gap(?)
   @include grid-3-column(1.25rem, 10px) {
@@ -36,6 +37,16 @@
   .toggle_text_overflow {
     // show three dots (hide text) if text more than two lines
     @extend %toggle-text-overflow-hidden;
+  }
+
+  // button on white background
+  .button {
+    border-color: $btn-brd-dark;
+    color: $btn-txt-dark;
+
+    &:hover {
+      background-color: $btn-hov-bg-white;
+    }
   }
 
   // after adding this class (on click event in main.js) to some element - showing text of the element
@@ -63,11 +74,11 @@
     color: $txt-h4-bg-dark;
   }
 
-  .a {
+  a {
     color: $main-txt-white;
   }
 
-  p > .a:hover {
+  p > a:hover {
     text-decoration: none;
   }
 }
@@ -81,7 +92,7 @@
     color: $txt-p-ftr;
   }
 
-  .a {
+  a {
     text-decoration: none;
     color: $txt-h4-bg-dark;
 

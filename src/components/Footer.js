@@ -1,15 +1,32 @@
 import React from "react";
 
-// TODO: make dynamic rendering
+// get text
+import { content } from "../content/content";
+
+// get links
+import { externalLinks } from "../content/links";
+
 
 const Footer = () => {
+  // get text from content
+  const { footer } = content;
+  const { textP } = footer;
+
+  // get data from links
+  const { templated, fotogrph } = externalLinks;
+
   return (
     <>
       <p>
-        © Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/" className="a">Fotogrph</a> |  Design by <a href="http://templated.co/" rel="nofollow" className="a">
-          TEMPLATED
+        {textP[0]}
+        <a href={fotogrph.link}>
+          {fotogrph.text}
         </a>
-        .
+        {textP[1]}
+        <a href={templated.link} rel="nofollow">
+          {templated.text}
+        </a>
+        {textP[2]}
       </p>
     </>
   );

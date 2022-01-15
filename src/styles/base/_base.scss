@@ -76,16 +76,6 @@ h5 {
   }
 }
 
-// button on white background
-.btn-white {
-  border-color: $btn-brd-dark;
-  color: $btn-txt-dark;
-
-  &:hover {
-    background-color: $btn-hov-bg-white;
-  }
-}
-
 // space under button section
 .actions {
   margin-bottom: 1em;

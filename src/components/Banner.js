@@ -1,20 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-// TODO: make dynamic rendering
+import { content } from '../content/content';
 
 
 const Banner = () => {
+  // get banner object from content
+  const { banner: { title, subtitle, buttonLink } } = content;
+
   return (
     <div id="banner">
 
       <div className="title">
-        <h2>Maecenas luctus lectus</h2>
-        <h4>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h4>
+        <h2>{title}</h2>
+        <h4>{subtitle}</h4>
       </div>
 
       <div className="actions">
-        <Link to="/contact" className="a button btn-big">
+        <Link to={buttonLink} className="a button btn-big">
           Etiam posuere
         </Link>
       </div>
