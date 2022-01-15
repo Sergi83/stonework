@@ -1,0 +1,110 @@
+
+// * variables
+
+// colors
+
+// main colors
+// use example -> background-color: map-get($main-color, b-bg-dark);
+// body background, text on different backgrounds, smaller/bigger font-size 
+
+$main-b-bg-dark: #111;
+$main-b-txt-white: #FFF;
+
+$main-txt-dark: rgba(0,0,0,.8);
+$main-txt-white: #fff;
+
+// buttons' color map
+// use example -> color: map-get($btn-color, txt-dark);
+
+
+$btn-brd-white: rgba(255,255,255,1);
+$btn-brd-dark: rgba(0,0,0,.8);
+$btn-txt-white: #fff;
+$btn-txt-dark: rgba(0,0,0,.8);
+
+$btn-hov-bg: rgba(255,255,255,0.3);
+$btn-hov-bg-white: rgba(0,0,0,0.50);
+
+
+
+// subtitles on dark/white background, p on white/dark (footer)
+$txt-a-menu: rgba(255,255,255,0.80);
+$txt-active-menu: rgba(255,255,255,0.3);
+
+$txt-h4-bg-dark: rgba(255,255,255,0.60);
+$txt-h5-bg-white: rgba(0,0,0,0.50);
+$txt-p-bg-white: rgba(0,0,0,0.60);
+$txt-p-ftr: rgba(255,255,255,0.3);
+
+
+// * variables sizes
+
+// margin-block
+$banner-mgbl: 0.83em;
+
+// header padding (top, bottom)
+$tb-middle: 5em;
+$tb-bottom-more: 7em;
+
+
+// * global templates
+
+// list (standard for body): style none; display list-item; 
+// pointer, c#inherit (from parent element)
+%list-stand {
+    ul { list-style: none; }
+    li { display: list-item; }
+    
+    .a {
+        cursor: pointer;
+        color: inherit;
+    }
+}
+
+
+// buttons' margin, border, font
+%btn-mgt-bd-r-f {
+    margin-top: 2em;
+    border: 2px solid $btn-brd-white;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1em;
+};
+
+
+// * local templates
+
+// link menu: padding, letter-spacing, uppercase, fz, color
+%menu-link {
+    padding: 1em 1.5em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    color: $txt-a-menu;
+}
+
+// #three-column: h3(color, line-height), h5(lh), p(lh, margin-bottom), img(w, h, pad-top-bottom)
+%header-img {
+    h3 {
+        color: $main-txt-dark;
+    }
+
+    img {
+        width: 2.67em;
+        height: 2.5em;
+        padding: 2em 0;
+    }
+}
+
+
+// toggle text overflow
+%toggle-text-overflow-hidden {
+    // show three dots (hide text) if text more than two lines
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+

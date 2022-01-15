@@ -1,0 +1,103 @@
+// variables + mixins
+
+@import "../base/variable_templ";
+@import "../base/mixins";
+
+// TODO:
+
+// * wrapper
+
+.wrapper {
+  // position(relative), padding (top?, bottom?, sides = 0)
+  @include wrap-relative-pad($tb-middle, $tb-bottom-more);
+
+  background: $main-b-txt-white;
+}
+
+#three-column {
+  // h3(color), img(w, h, pad-top-bottom)
+  @extend %header-img;
+
+  
+  // grid
+  // minmax(min?, max?), gap(?)
+  @include grid-3-column(1.25rem, 10px) {
+    // text-area rows(2): 1) 1-title, 2) 3-column(.box1-3);
+    @include grid-area-3-column;
+  }
+
+  color: $txt-p-bg-white;
+  text-align: center;
+
+  p {
+    // padding (left, right)
+    @include pad-sides(0.6rem);
+  }
+
+  .toggle_text_overflow {
+    // show three dots (hide text) if text more than two lines
+    @extend %toggle-text-overflow-hidden;
+  }
+
+  // button on white background
+  .button {
+    border-color: $btn-brd-dark;
+    color: $btn-txt-dark;
+
+    &:hover {
+      background-color: $btn-hov-bg-white;
+    }
+  }
+
+  // after adding this class (on click event in main.js) to some element - showing text of the element
+  .activate {
+    display: block;
+  }
+}
+
+#general-inf {
+  // position(relative), padding (top?, bottom?, sides = 0)
+  @include wrap-relative-pad($tb-bottom-more, $tb-bottom-more);
+
+  // background (bg, default color, image) + bgzc (size: cover)
+  @include wrap-image-bg-bgzc($main-b-bg-dark, url(../images/header-bg.jpg));
+
+  text-align: center;
+
+  .container {
+    max-width: 62.5rem;
+    padding: 0 10%;
+    color: $txt-a-menu;
+  }
+
+  h5 {
+    color: $txt-h4-bg-dark;
+  }
+
+  a {
+    color: $main-txt-white;
+  }
+
+  p > a:hover {
+    text-decoration: none;
+  }
+}
+
+#copyright {
+  padding: $tb-middle 0;
+  border-top: 1px solid $main-txt-dark;
+
+  p {
+    text-align: center;
+    color: $txt-p-ftr;
+  }
+
+  a {
+    text-decoration: none;
+    color: $txt-h4-bg-dark;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

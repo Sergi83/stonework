@@ -1,0 +1,81 @@
+// variables + mixins
+
+@import "../base/variable_templ";
+@import "../base/mixins";
+
+// TODO:
+
+// * wrappers
+
+#header-wrapper {
+  // position(relative), padding (top?, bottom?, sides = 0)
+  @include wrap-relative-pad($tb-middle, $tb-bottom-more);
+
+  // background (bg, default color, image) + bgzc (size: cover)
+  @include wrap-image-bg-bgzc($main-b-bg-dark, url(../images/header-bg.jpg));
+
+  .a {
+    text-decoration: none;
+  }
+}
+
+#header {
+  .hamburger {
+    right: 0;
+    margin-right: 5%;
+    padding: 2px 10px;
+  }
+
+  .active_menu {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+#logo {
+  h1 {
+    padding-left: 0.6rem;
+  }
+}
+
+#menu {
+  li {
+    display: block;
+    text-align: center;
+
+    // padding, letter-spacing, uppercase, fz, color
+    .a {
+      @extend %menu-link;
+
+      &:hover {
+        text-decoration: underline;
+      }
+      // when clicking the link
+      &:active {
+        color: $txt-active-menu;
+      }
+    }
+  }
+
+  .active .a {
+    border: 2px solid $btn-brd-white;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+
+    &:hover {
+      background-color: $btn-hov-bg;
+    }
+  }
+}
+
+#banner {
+  padding-top: 10em;
+  text-align: center;
+
+  h4 {
+    color: $txt-h4-bg-dark;
+  }
+}

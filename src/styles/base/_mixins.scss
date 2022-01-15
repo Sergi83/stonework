@@ -1,0 +1,130 @@
+
+// * wrappers 
+
+// position(relative), padding (top, bottom, sides = 0)
+@mixin wrap-relative-pad ($top, $bottom) {
+  position: relative;
+  padding: $top 0 $bottom 0;
+}
+
+// background (bg, default color, image) + bgzc (size: cover)
+@mixin wrap-image-bg-bgzc ($bg-color, $image-url) {
+  background: $bg-color $image-url no-repeat center;
+  background-size: cover;
+}
+
+// * container
+
+// container: overflow, margin (tb, rl), max-width
+@mixin contr-overfl-marg2 ($marg-tb, $marg-rl) {
+  overflow: hidden;
+  margin: $marg-tb $marg-rl;
+  max-width: 1200px;
+}
+
+// * positioning
+
+// position + top
+@mixin pos-top ($pos, $top) {
+  position: $pos;
+  top: $top;
+}
+
+// display, justify-content
+@mixin flex-justify-content ($jc) {
+  display: flex;
+  justify-content: $jc;
+}
+
+// padding (sides)
+@mixin pad-sides ($p-left-right) {
+  padding-left: $p-left-right;
+  padding-right: $p-left-right;
+}
+
+
+// * nav-bar (
+// phone/tablet media queries templates
+// margins, animation, line height and text-align
+@mixin open-menu-pos-animation {
+  display: none;
+  margin-top: 2rem;
+  margin-left: 5%;
+
+  li {
+      line-height: 2.5;
+      text-align: left;
+  }
+
+  // animation move menu right (with changing opacity from 0 to 1)
+  animation: move-right 0.5s ease forwards;
+  
+  @keyframes move-right {
+    0% {opacity: 0;}
+    70% { opacity: 0.5; }
+    100% {
+      transform: translateY(5%);
+      -webkit-transform: translateY(5%);
+      -moz-transform: translateY(5%);
+      -ms-transform: translateY(5%);
+      -o-transform: translateY(5%);
+      opacity: 1;
+}
+  }
+}
+
+
+// * grid
+
+// #three-column
+// text-area: 1title, 3-column(.box1-3); minmax(min?, $max), gap(?)
+@mixin grid-3-column ($minmax, $gap) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax($minmax, auto);
+  margin: 0 auto;
+  grid-gap: $gap;
+
+  // grid area
+  @content;
+}
+
+// grid for media queries
+// wrapper, containers
+// grid area
+@mixin grid-area-names {
+  .title { grid-area: title; }
+  .box1 { grid-area: box1; }
+  .box2 { grid-area: box2; }
+  .box3 { grid-area: box3; }
+}
+
+@mixin grid-area-3-column {
+  grid-template-areas: 
+  "title title title"
+  "box1 box2 box3";
+
+  @include grid-area-names;
+}
+
+@mixin grid-area-1-column {
+  grid-template-areas: 
+  "title title title"
+  "box1 box1 box1"
+  "box2 box2 box2"
+  "box3 box3 box3";
+
+  @include grid-area-names;
+}
+
+// * media queries (conditions)
+// queue of media queries: should be the same order as in the mixin
+@mixin mediaQ-size ($size) {
+    @if $size == phone-only {
+      @media (max-width: 811px) { @content; }
+    } @else if $size == tablet-up {
+      @media (min-width: 812px) { @content; }
+    } @else if $size == desktop-up {
+      @media (min-width: 1150px) { @content; }
+    }
+}

@@ -3,8 +3,8 @@ import React from "react";
 
 export const HeaderLayout = ({ children }) => {
   return (
-    <header className="header-wrapper">
-      <div className="container">{children}</div>
+    <header id="header-wrapper">
+      <div className="container" >{children}</div>
     </header>
   );
 };
